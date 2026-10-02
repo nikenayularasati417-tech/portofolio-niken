@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niken Ayu Larasati — Portfolio</title>
+  <meta name="description" content="Portfolio Niken Ayu Larasati — Web & Network Enthusiast">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    :root{
+      --bg:#fbf8ff; --card:rgba(255,255,255,.78); --purple:#7650c9;
+      --purple2:#9b78e8; --lav:#e9ddff; --lav2:#d9c5ff;
+      --text:#292044; --muted:#716b82; --line:#eadfff;
+      --shadow:0 18px 50px rgba(105,72,170,.14);
+    }
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{
+      margin:0;font-family:Poppins,sans-serif;color:var(--text);background:
+      radial-gradient(circle at 10% 10%,#eadfff 0 10%,transparent 28%),
+      radial-gradient(circle at 90% 25%,#eee6ff 0 9%,transparent 27%),
+      linear-gradient(135deg,#fffaff,#f4edff 55%,#fff);
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    .blob{position:fixed;border-radius:50%;filter:blur(8px);opacity:.38;z-index:-1;animation:float 7s ease-in-out infinite}
+    .b1{width:180px;height:180px;background:#cbb4ff;left:-80px;top:20%}
+    .b2{width:230px;height:230px;background:#eadbff;right:-110px;top:60%}
+    @keyframes float{50%{transform:translateY(-18px) rotate(6deg)}}
+    .nav{
+      position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1120px,92%);
+      padding:12px 18px;background:rgba(255,255,255,.76);backdrop-filter:blur(18px);
+      border:1px solid #fff;border-radius:999px;box-shadow:var(--shadow);z-index:20;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{font-family:"Baloo 2";font-size:1.35rem;font-weight:800;color:var(--purple);display:flex;gap:9px;align-items:center}
+    .brand span{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--lav)}
+    .navlinks{display:flex;gap:7px;align-items:center}
+    .navlinks a{padding:9px 14px;border-radius:30px;font-size:.82rem;font-weight:600;color:#5637a4;transition:.25s}
+    .navlinks a:hover,.navlinks a.active{background:linear-gradient(135deg,var(--purple2),#b195f3);color:white;transform:translateY(-2px)}
+    .menu{display:none;border:0;background:var(--lav);font-size:1.2rem;border-radius:50%;width:38px;height:38px}
+
+    section{width:min(1120px,92%);margin:auto;padding:105px 0 35px}
+    .hero{min-height:760px;display:grid;grid-template-columns:1fr 1.05fr;gap:45px;align-items:center;padding-top:130px}
+    .photo-wrap{position:relative;display:flex;justify-content:center}
+    .photo-bg{position:absolute;width:420px;height:420px;border-radius:48% 52% 43% 57%;background:linear-gradient(135deg,#bca0f2,#e7dcff);transform:rotate(-5deg);box-shadow:var(--shadow)}
+    .photo{
+      position:relative;width:390px;height:430px;object-fit:cover;object-position:center 30%;
+      border-radius:38% 38% 28% 28%;border:9px solid white;
+      box-shadow:0 25px 60px rgba(91,61,156,.22);z-index:2
+    }
+    .sticker{position:absolute;z-index:3;background:white;border:1px solid #eee5ff;padding:10px 14px;border-radius:18px;box-shadow:var(--shadow);font-weight:700;color:#6242ad;animation:float 5s ease-in-out infinite}
+    .s1{left:8%;top:12%;transform:rotate(-8deg)} .s2{right:5%;bottom:12%;transform:rotate(7deg)}
+    .hero h1{font-family:"Baloo 2";font-size:clamp(3.2rem,7vw,6rem);line-height:.86;margin:0;color:#6036b4;letter-spacing:-2px}
+    .hero h1 span{color:#9b79e8}
+    .tag{display:inline-block;margin:18px 0;padding:8px 18px;border-radius:999px;background:var(--lav);color:#6844b4;font-weight:700}
+    .hero p{font-size:1rem;line-height:1.85;color:var(--muted);max-width:620px}
+    .quote{font-family:"Baloo 2";font-size:1.2rem;color:#59399f}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+    .btn{padding:13px 20px;border-radius:999px;font-weight:700;transition:.25s;border:1px solid var(--lav2)}
+    .btn.primary{background:linear-gradient(135deg,#7650c9,#a17ee8);color:white;box-shadow:0 12px 25px #9a7ad840}
+    .btn.secondary{background:white;color:#6948b1}
+    .btn:hover{transform:translateY(-4px)}
+    .btn:active,.navlinks a:active,.card:active{transform:scale(.97)}
+    .ripple{position:absolute;border-radius:50%;transform:scale(0);animation:ripple .55s linear;background:rgba(255,255,255,.45);pointer-events:none}
+    @keyframes ripple{to{transform:scale(4);opacity:0}}
+    .contact-note{display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+
+    .section-title{text-align:center;margin-bottom:38px}
+    .section-title .mini{color:#8964cf;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:2px}
+    .section-title h2{font-family:"Baloo 2";font-size:2.8rem;margin:2px 0;color:#4d2d8d}
+    .section-title p{color:var(--muted);max-width:680px;margin:auto;line-height:1.7}
+
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .card{
+      background:var(--card);border:1px solid rgba(255,255,255,.9);border-radius:28px;padding:28px;
+      box-shadow:var(--shadow);backdrop-filter:blur(14px);transition:.35s;position:relative;overflow:hidden
+    }
+    .card:hover{transform:translateY(-7px);box-shadow:0 25px 65px rgba(105,72,170,.19)}
+    .card:before{content:"";position:absolute;width:100px;height:100px;border-radius:50%;background:#eee4ff;right:-35px;top:-35px}
+    .icon{width:50px;height:50px;border-radius:17px;display:grid;place-items:center;background:var(--lav);font-size:1.35rem;margin-bottom:12px}
+    .card h3{font-family:"Baloo 2";font-size:1.55rem;margin:0 0 8px;color:#57359e}
+    .card p,.card li{color:#625d70;line-height:1.75;font-size:.92rem}
+    .card ul{padding-left:20px;margin-bottom:0}
+    .highlight{color:#5d3ca8;font-weight:700}
+
+    .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .skill{background:#f3edff;border:1px solid #e8ddff;padding:13px 15px;border-radius:16px;font-size:.88rem}
+    .skill b{display:block;color:#59399f;margin-bottom:5px}
+    .bar{height:7px;background:#ded0fa;border-radius:99px;overflow:hidden}
+    .bar i{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,#7850c8,#b294f0);border-radius:99px}
+
+    .timeline{position:relative;margin:0 auto;max-width:900px}
+    .timeline:before{content:"";position:absolute;left:22px;top:0;bottom:0;width:3px;background:linear-gradient(#bda2f3,#e8ddff)}
+    .item{position:relative;padding:0 0 25px 65px}
+    .dot{position:absolute;left:12px;top:5px;width:23px;height:23px;border-radius:50%;background:#845dd3;border:6px solid #eee6ff}
+    .item .year{font-size:.78rem;font-weight:700;color:#8a63d0}
+    .item h3{margin:4px 0;font-family:"Baloo 2";font-size:1.4rem;color:#543394}
+    .item p{color:var(--muted);line-height:1.7;margin-top:4px}
+
+    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project{min-height:220px}
+    .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}
+    .chip{padding:6px 10px;border-radius:99px;background:#efe6ff;color:#6844b2;font-size:.72rem;font-weight:700}
+
+    .contact{display:grid;grid-template-columns:1fr 1.15fr;gap:22px}
+    .contact-list{display:grid;gap:12px}
+    .contact-item{display:flex;gap:12px;align-items:center;background:#f7f2ff;border-radius:18px;padding:13px}
+    .contact-item .ico{width:38px;height:38px;border-radius:12px;background:#e5d8ff;display:grid;place-items:center}
+    form{display:grid;gap:12px}
+    input,textarea{width:100%;border:1px solid #e4d9f7;background:#fff;border-radius:15px;padding:13px 15px;font:inherit;outline:none}
+    input:focus,textarea:focus{border-color:#9a78e5;box-shadow:0 0 0 4px #e9ddff}
+    textarea{min-height:125px;resize:vertical}
+
+    footer{margin-top:80px;background:linear-gradient(135deg,#7250bd,#a487e5);color:white;padding:45px 20px;text-align:center}
+    footer h3{font-family:"Baloo 2";font-size:2rem;margin:0}
+    footer p{opacity:.9}
+    .social{display:flex;justify-content:center;gap:10px;margin-top:15px}
+    .social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.2);transition:.2s}
+    .social a:hover{background:white;color:#704bbd;transform:translateY(-3px)}
+
+    .reveal{opacity:0;transform:translateY(35px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.show{opacity:1;transform:none}
+    @media(max-width:850px){
+      .navlinks{display:none;position:absolute;top:65px;left:0;right:0;background:white;padding:12px;border-radius:24px;box-shadow:var(--shadow);flex-direction:column}
+      .navlinks.open{display:flex}.navlinks a{width:100%;text-align:center}.menu{display:block}
+      .hero{grid-template-columns:1fr;text-align:center;min-height:auto}.hero p{margin:auto}.buttons{justify-content:center}
+      .photo,.photo-bg{width:310px;height:310px}.grid,.contact{grid-template-columns:1fr}.project-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:560px){
+      section{padding-top:85px}.hero{padding-top:115px}.hero h1{font-size:3.5rem}.skills{grid-template-columns:1fr}.project-grid{grid-template-columns:1fr}
+      .card{padding:22px}.photo,.photo-bg{width:275px;height:275px}.s1{left:0}.s2{right:0}
+    }
+  
+    .about-stack{display:grid;gap:22px;max-width:900px;margin:auto}
+    .goal-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+    .goal-pills span{padding:8px 13px;border-radius:999px;background:#f0e7ff;color:#6241a8;font-size:.78rem;font-weight:700}
+    .card,.btn,.navlinks a,.social a{transform-origin:center;will-change:transform}
+    
+    
+    
+      25%{transform:translateY(-7px) rotate(-1.2deg)}
+      50%{transform:translateY(-7px) rotate(1.2deg)}
+      75%{transform:translateY(-7px) rotate(-.7deg)}
+    }
+    
+      25%{transform:translateY(-3px) rotate(-2deg)}
+      50%{transform:translateY(-3px) rotate(2deg)}
+      75%{transform:translateY(-3px) rotate(-1deg)}
+    }
+    @media(max-width:850px){.about-stack{max-width:none}}
+
+  
+    .card,.btn,.navlinks a,.social a{transform-origin:center;will-change:transform}
+    .card{transition:transform .28s ease,box-shadow .28s ease}
+    .card:hover{transform:scale(1.025);box-shadow:0 24px 60px rgba(105,72,170,.20)}
+    .card:active{transform:scale(.985)}
+    .contact-card{width:100%}.touch-zoom{transform:scale(1.035)!important;}
+
+  </style>
+</head>
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div>
+
+  <nav class="nav">
+    <a class="brand" href="#home"><span>💜</span> Niken Ayu L</a>
+    <button class="menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">☰</button>
+    <div class="navlinks">
+      <a class="active" href="#home">Beranda</a><a href="#about">Tentang</a><a href="#education">Pendidikan</a>
+      <a href="#experience">Pengalaman</a><a href="#projects">Proyek</a><a href="#achievements">Prestasi</a><a href="#contact">Kontak</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="photo-wrap reveal">
+        <div class="photo-bg"></div>
+        <img class="photo" src="niken-profile.png" alt="Foto Niken Ayu Larasati">
+</div>
+      <div class="reveal">
+        <div class="tag">Web & Network Enthusiast ✨</div>
+        <h1>Niken Ayu<br><span>Larasati</span></h1>
+        <p class="quote">“Teknologi adalah jembatan untuk mewujudkan masa depan yang lebih baik.”</p>
+        <p>Lulusan <b>SMK Tunas Harapan Pati</b> jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT) yang tertarik pada website, pemrograman, jaringan komputer, dan teknologi informasi.</p>
+        <div class="buttons"><a class="btn primary" href="#projects">✨ Lihat Proyek</a><a class="btn secondary" href="#contact">💌 Hubungi Saya</a></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-title reveal"><div class="mini">Hello, I'm Niken</div><h2>Tentang Diri Saya 🌷</h2><p>Sedikit cerita tentang latar belakang, karakter, dan hal yang ingin saya kembangkan.</p></div>
+      <div class="about-stack">
+        <article class="card reveal"><div class="icon">👩🏻‍💻</div><h3>Profil Singkat</h3>
+          <p>Saya merupakan <span class="highlight">lulusan SMK Tunas Harapan Pati</span> jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT). Saya memiliki ketertarikan pada <b>pemrograman, pengembangan website, jaringan komputer, dan teknologi informasi</b>.</p>
+          <p>Saya senang mempelajari teknologi baru, terbiasa bekerja secara individu maupun tim, serta berusaha menyelesaikan tugas dengan teliti, disiplin, dan bertanggung jawab.</p>
+        </article>
+        <article class="card reveal tujuan-card"><div class="icon">🌱</div><h3>Tujuan & Nilai</h3>
+          <p>Saya ingin terus mengembangkan kemampuan di bidang teknologi, membangun karya digital yang bermanfaat, dan mendapatkan pengalaman baru melalui proyek serta kolaborasi.</p>
+          <div class="goal-pills"><span>✨ Terus belajar</span><span>💜 Kreatif</span><span>🤝 Kerja sama</span><span>🚀 Berkembang</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-title reveal"><div class="mini">My Journey</div><h2>Pendidikan 🎓</h2><p>Perjalanan pendidikan yang membentuk dasar kemampuan saya di bidang teknologi.</p></div>
+      <div class="card reveal">
+        <div class="timeline">
+          <div class="item"><span class="dot"></span><div class="year">2024 — 2027</div><h3>SMK Tunas Harapan Pati</h3><p><b>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</b><br>Mempelajari jaringan komputer, sistem operasi, instalasi dan konfigurasi perangkat, dasar pemrograman, website, database, serta praktik administrasi jaringan.</p></div>
+          <div class="item"><span class="dot"></span><div class="year">Pengembangan Kompetensi</div><h3>Praktik & Pembelajaran</h3><p>Belajar melalui tugas praktik, proyek sekolah, simulasi jaringan, pengembangan website, serta penggunaan berbagai software pendukung seperti VS Code, Android Studio, GitHub, dan Cisco Packet Tracer.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-title reveal"><div class="mini">What I've Done</div><h2>Pengalaman Proyek 💼</h2><p>Beberapa pengalaman yang menggambarkan kemampuan teknis dan cara saya bekerja.</p></div>
+      <div class="grid">
+        <article class="card reveal"><div class="icon">📚</div><h3>Perpustakaan Digital</h3><p>Berperan dalam perancangan tampilan <b>UI/UX</b> aplikasi perpustakaan digital. Bekerja bersama tim untuk menyusun alur tampilan, menyesuaikan kebutuhan pengguna, serta membantu proses pengembangan dan pengujian.</p></article>
+        <article class="card reveal"><div class="icon">🌐</div><h3>Website Sederhana</h3><p>Membuat website dengan <b>HTML, CSS, PHP, dan MySQL</b>. Mengelola data dengan fitur CRUD seperti tambah, ubah, hapus, dan menampilkan data secara terstruktur.</p></article>
+        <article class="card reveal"><div class="icon">🖥️</div><h3>Praktik Jaringan Komputer</h3><p>Melakukan instalasi sistem operasi Windows dan Linux, konfigurasi IP, DHCP, routing, serta melakukan perawatan dan troubleshooting dasar jaringan komputer.</p></article>
+        <article class="card reveal"><div class="icon">🎨</div><h3>Desain UI/UX</h3><p>Membuat rancangan tampilan aplikasi menggunakan prinsip dasar UI/UX dan tools desain seperti Figma untuk menyusun layout yang rapi, mudah dipahami, dan nyaman digunakan.</p></article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title reveal"><div class="mini">My Works</div><h2>Proyek Pilihan 🚀</h2><p>Kumpulan proyek yang dapat dikembangkan menjadi portfolio digital.</p></div>
+      <div class="project-grid">
+        <article class="card project reveal"><div class="icon">💻</div><h3>Website Portfolio</h3><p>Website personal untuk menampilkan profil, kemampuan, pendidikan, dan karya secara interaktif.</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div></article>
+        <article class="card project reveal"><div class="icon">♻️</div><h3>WasteBank</h3><p>Konsep aplikasi bank sampah dengan fitur nasabah, admin, petugas, jadwal, transaksi, harga, dan riwayat.</p><div class="chips"><span class="chip">UI/UX</span><span class="chip">Figma</span><span class="chip">Database</span></div></article>
+        <article class="card project reveal"><div class="icon">🌐</div><h3>Simulasi Jaringan</h3><p>Latihan konfigurasi jaringan dan administrasi sistem menggunakan Linux, MikroTik, serta simulasi perangkat jaringan.</p><div class="chips"><span class="chip">Linux</span><span class="chip">MikroTik</span><span class="chip">Networking</span></div></article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title reveal"><div class="mini">What I Can Do</div><h2>Keahlian 🛠️</h2><p>Kemampuan yang sedang saya gunakan dan terus saya kembangkan.</p></div>
+      <div class="card reveal"><div class="skills">
+        <div class="skill"><b>🖥️ Instalasi & Konfigurasi Windows/Linux</b><div class="bar"><i style="--w:88%"></i></div></div>
+        <div class="skill"><b>🔧 Troubleshooting Jaringan</b><div class="bar"><i style="--w:84%"></i></div></div>
+        <div class="skill"><b>🌐 IP Address, DHCP & Routing</b><div class="bar"><i style="--w:82%"></i></div></div>
+        <div class="skill"><b>📡 Dasar MikroTik</b><div class="bar"><i style="--w:76%"></i></div></div>
+        <div class="skill"><b>💻 HTML, CSS, PHP & MySQL</b><div class="bar"><i style="--w:80%"></i></div></div>
+        <div class="skill"><b>🎨 VS Code, Android Studio & GitHub</b><div class="bar"><i style="--w:78%"></i></div></div>
+        <div class="skill"><b>📊 Word, Excel & PowerPoint</b><div class="bar"><i style="--w:90%"></i></div></div>
+        <div class="skill"><b>🎨 Dasar Figma & UI/UX</b><div class="bar"><i style="--w:74%"></i></div></div>
+      </div></div>
+    </section>
+
+    <section id="training">
+      <div class="section-title reveal"><div class="mini">Keep Improving</div><h2>Pelatihan 📖</h2><p>Kegiatan belajar tambahan yang mendukung perkembangan kemampuan.</p></div>
+      <div class="grid">
+        <article class="card reveal"><div class="icon">☕</div><h3>Decoding — Belajar Memulai Pemrograman dengan Java</h3><p>Memahami dasar-dasar pemrograman dan logika melalui pembelajaran bahasa Java.</p></article>
+        <article class="card reveal"><div class="icon">🎨</div><h3>Bisa.ai — Dasar Figma & Perancangan UI Aplikasi Mobile</h3><p>Mempelajari dasar penggunaan Figma dan proses merancang antarmuka aplikasi mobile.</p></article>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <div class="section-title reveal"><div class="mini">Milestone</div><h2>Prestasi 🏆</h2><p>Pencapaian yang menjadi bagian dari perjalanan belajar.</p></div>
+      <div class="card reveal" style="text-align:center">
+        <div class="icon" style="margin:0 auto 12px">🏆</div>
+        <h3>Juara 3 Lomba Macapat Islami</h3>
+        <p>Tingkat Kecamatan Wedarijaksa — <b>2019</b></p>
+        <p>Pengalaman ini menjadi pengingat untuk terus berani berproses, berlatih, dan memberikan hasil terbaik.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title reveal"><div class="mini">Let's Connect</div><h2>Kontak 💌</h2><p>Silakan hubungi saya untuk berdiskusi tentang proyek, kolaborasi, atau kesempatan belajar.</p></div>
+      <div class="contact">
+        <div class="card reveal contact-card">
+          <div class="contact-list">
+            <div class="contact-item"><div class="ico">📞</div><div><small>Telepon</small><br><b>+62 896 1843 7453</b></div></div>
+            <div class="contact-item"><div class="ico">✉️</div><div><small>Email</small><br><b>nikenayularasati417@gmail.com</b></div></div>
+            <div class="contact-item"><div class="ico">📍</div><div><small>Lokasi</small><br><b>Pati, Jawa Tengah</b></div></div>
+          </div>
+        </div>
+      </div></section>
+  </main>
+
+  <footer>
+    <h3>Niken Ayu Larasati 💜</h3>
+    <p>Web & Network Enthusiast • Terus belajar, terus berkembang.</p>
+    <div class="social">
+      <a href="tel:+6289618437453">☎</a>
+      <a href="tel:+6289618437453">☎</a>
+      <a href="#home">↑</a>
+    </div>
+    <p style="font-size:.78rem;margin-top:25px">© <span id="year"></span> Niken Ayu Larasati</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const links = document.querySelectorAll('.navlinks a');
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let current = 'home';
+      sections.forEach(s => { if(scrollY >= s.offsetTop - 180) current = s.id; });
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+current));
+    });
+
+    function sendMessage(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message').value;
+      const subject = encodeURIComponent('Pesan Portfolio dari ' + name);
+      const body = encodeURIComponent(message);
+      location.href = `mailto:nikenayularasati417@gmail.com?subject=${subject}&body=${body}`;
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Efek gerak kecil ketika tombol/link diklik.
+    document.querySelectorAll('.btn, .navlinks a').forEach(el => {
+      el.addEventListener('click', function(e){
+        const r = document.createElement('span');
+        r.className = 'ripple';
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        r.style.width = r.style.height = size + 'px';
+        r.style.left = (e.clientX - rect.left - size/2) + 'px';
+        r.style.top = (e.clientY - rect.top - size/2) + 'px';
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(r);
+        setTimeout(() => r.remove(), 600);
+      });
+    });
+    document.querySelectorAll('.card').forEach(el => {
+      el.addEventListener('pointerdown', () => {
+        el.classList.add('touch-zoom');
+        setTimeout(() => el.classList.remove('touch-zoom'), 220);
+      });
+    });
+    </script>
+</body>
+</html>
